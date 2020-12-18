@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="ebebed30-d776-49f4-9289-4642e66fd469" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../laclinic-backend-api/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../laclinic-backend-api/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../laclinic-backend-api/app/api/medicalRecord/medicalRecordController.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../laclinic-backend-api/app/api/obat/obatController.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../laclinic-backend-api/config/keycloak-config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../laclinic-backend-api/.env" beforeDir="false" afterPath="$PROJECT_DIR$/../laclinic-backend-api/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../laclinic-backend-api/app/api/pegawai/pegawaiController.js" beforeDir="false" afterPath="$PROJECT_DIR$/../laclinic-backend-api/app/api/pegawai/pegawaiController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../laclinic-backend-api/app/api/pegawai/pegawaiModel.js" beforeDir="false" afterPath="$PROJECT_DIR$/../laclinic-backend-api/app/api/pegawai/pegawaiModel.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../laclinic-backend-api/app/api/user/userController.js" beforeDir="false" afterPath="$PROJECT_DIR$/../laclinic-backend-api/app/api/user/userController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../laclinic-backend-api/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../laclinic-backend-api/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../laclinic-backend-api/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../laclinic-backend-api/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../laclinic-backend-api/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/../laclinic-backend-api/server.js" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../laclinic-backend-api" />
+  </component>
+  <component name="ProjectId" id="1leKuQ5BFgUxZi8sgqrYX6Q8tGt" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="mongo" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="web-ide.project.structure" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/services" />
+      <recent name="$PROJECT_DIR$" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="DatabaseReceiver.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/app/services/DatabaseReceiver.js" working-dir="$PROJECT_DIR$/app/services">
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Node.js.DatabaseReceiver.js" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="ebebed30-d776-49f4-9289-4642e66fd469" name="Default Changelist" comment="" />
+      <created>1607952340082</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1607952340082</updated>
+      <workItem from="1607952341911" duration="375000" />
+      <workItem from="1607952752898" duration="8660000" />
+      <workItem from="1607964053263" duration="1680000" />
+      <workItem from="1608012629882" duration="7015000" />
+      <workItem from="1608040766544" duration="4873000" />
+      <workItem from="1608299387194" duration="10682000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="@localhost">
+  <database-model serializer="dbm" dbms="MONGO" family-id="MONGO" format-version="4.20">
+    <root id="1">
+      <ServerVersion>4.2.8</ServerVersion>
+    </root>
+    <schema id="2" parent="1" name="admin"/>
+    <schema id="3" parent="1" name="config"/>
+    <schema id="4" parent="1" name="db_mbtps"/>
+    <schema id="5" parent="1" name="laclinic"/>
+    <schema id="6" parent="1" name="local"/>
+    <schema id="7" parent="1" name="sample_airbnb"/>
+    <schema id="8" parent="1" name="sample_geospatial"/>
+    <schema id="9" parent="1" name="sample_mflix"/>
+    <schema id="10" parent="1" name="sample_supplies"/>
+    <schema id="11" parent="1" name="sample_training"/>
+    <schema id="12" parent="1" name="sample_weatherdata"/>
+    <schema id="13" parent="1" name="shifted"/>
+    <table id="14" parent="4" name="users"/>
+    <column id="15" parent="14" name="_id">
+      <DataType>ObjectId(0)|12s</DataType>
+    </column>
+    <column id="16" parent="14" name="__v">
+      <Position>1</Position>
+      <DataType>Integer|4s</DataType>
+    </column>
+    <column id="17" parent="14" name="username">
+      <Position>2</Position>
+      <DataType>String(0)|12s</DataType>
+    </column>
+  </database-model>
+</dataSource>
