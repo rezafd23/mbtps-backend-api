@@ -3,6 +3,7 @@ const publishToQueue = require('./app/services/MQService');
 const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
 const dotenv = require('dotenv')
+const util = require('./app/util/Util')
 dotenv.config();
 // const base_url="/app/api/"
 // import {publishToQueue} from './app/services/MQService.js';
@@ -16,15 +17,16 @@ app.use(bodyParser.urlencoded({extended: true}));
 // parse requests of content-type - application/json
 app.use(bodyParser.json());
 
-mongoose.connect(process.env.DB_URL, {
-    useNewUrlParser: true,
-    useUnifiedTopology:true
-}).then(() => {
-    console.log("Successfully connected to the database");
-}).catch(err => {
-    console.log('Could not connect to the database. Exiting now...', err);
-    process.exit();
-});
+util.connectMongo()
+// mongoose.connect(process.env.DB_URL, {
+//     useNewUrlParser: true,
+//     useUnifiedTopology:true
+// }).then(() => {
+//     console.log("Successfully connected to the database");
+// }).catch(err => {
+//     console.log('Could not connect to the database. Exiting now...', err);
+//     process.exit();
+// });
 
 const userController = require('./app/user/UserController')
 

@@ -2,18 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ebebed30-d776-49f4-9289-4642e66fd469" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../laclinic-backend-api/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../laclinic-backend-api/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../laclinic-backend-api/app/api/medicalRecord/medicalRecordController.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../laclinic-backend-api/app/api/obat/obatController.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../laclinic-backend-api/config/keycloak-config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../laclinic-backend-api/.env" beforeDir="false" afterPath="$PROJECT_DIR$/../laclinic-backend-api/.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../laclinic-backend-api/app/api/pegawai/pegawaiController.js" beforeDir="false" afterPath="$PROJECT_DIR$/../laclinic-backend-api/app/api/pegawai/pegawaiController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../laclinic-backend-api/app/api/pegawai/pegawaiModel.js" beforeDir="false" afterPath="$PROJECT_DIR$/../laclinic-backend-api/app/api/pegawai/pegawaiModel.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../laclinic-backend-api/app/api/user/userController.js" beforeDir="false" afterPath="$PROJECT_DIR$/../laclinic-backend-api/app/api/user/userController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../laclinic-backend-api/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../laclinic-backend-api/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../laclinic-backend-api/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../laclinic-backend-api/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../laclinic-backend-api/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/../laclinic-backend-api/server.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/otp/OtpModel.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/otp/OtpSchema.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/repositories/OtpRepositories.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/repositories/UserRepositories.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/services/DatabaseReceiver.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/services/DatabaseReceiver.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/services/MQService.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/services/MQService.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/user/UserController.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/user/UserController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/user/UserModel.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/user/UserModel.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/user/UserSchema.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/user/UserSchema.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/util/Util.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/util/Util.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,7 +31,7 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../laclinic-backend-api" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1leKuQ5BFgUxZi8sgqrYX6Q8tGt" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -47,6 +47,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="web-ide.project.structure" />
+    <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -78,7 +79,9 @@
       <workItem from="1607964053263" duration="1680000" />
       <workItem from="1608012629882" duration="7015000" />
       <workItem from="1608040766544" duration="4873000" />
-      <workItem from="1608299387194" duration="10682000" />
+      <workItem from="1608299387194" duration="10803000" />
+      <workItem from="1608325604357" duration="5519000" />
+      <workItem from="1608357522057" duration="30458000" />
     </task>
     <servers />
   </component>
