@@ -21,6 +21,7 @@ module.exports = {
             rw:joi.string().required(),
             living_status:joi.string().required(),
         })
+
         return schema.validate(data)
     },
     createPin:(data)=>{

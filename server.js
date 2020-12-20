@@ -1,14 +1,32 @@
 const express = require('express');
 const publishToQueue = require('./app/services/MQService');
 const bodyParser = require('body-parser')
-const mongoose = require('mongoose')
+// const mongoose = require('mongoose')
 const dotenv = require('dotenv')
 const util = require('./app/util/Util')
+const multer =require('multer')
+const path=require('path')
 dotenv.config();
 // const base_url="/app/api/"
 // import {publishToQueue} from './app/services/MQService.js';
 
 const app = express();
+
+const diskStorage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, path.join(__dirname, "public/uploads"));
+    },
+    filename: function (req, file, cb) {
+        cb(
+            null,
+            file.fieldname + "-" + Date.now() + path.extname(file.originalname)
+        );
+    },
+});
+
+// let publicDir = require('path').join(__dirname,'/public');
+// app.use(express.static(publicDir));
+app.use('/public/uploads', express.static(process.cwd() + '/public/uploads'))
 
 app.use(express.json());
 // parse requests of content-type - application/x-www-form-urlencoded
@@ -38,6 +56,21 @@ app.get('/', (req, res) => {
     res.send('Hello World!')
 })
 
+app.put("/contact/upload", multer({ storage: util.diskStorage }).single("ektp"),
+    (req, res) => {
+        const file = req.file.path;
+        console.log(file);
+        if (!file) {
+            res.status(400).send({
+                status: false,
+                data: "No File is selected.",
+            });
+        }
+        // menyimpan lokasi upload data contacts pada index yang diinginkan
+        // contacts[req.query.index].photo = req.file.path;
+        res.send(file);
+    }
+);
 
 app.post('/msg', async (req, res) => {
     let {queueName, payload} = req.body;

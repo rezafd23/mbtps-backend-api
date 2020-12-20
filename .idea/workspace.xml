@@ -2,17 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ebebed30-d776-49f4-9289-4642e66fd469" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/otp/OtpModel.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/otp/OtpSchema.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/repositories/OtpRepositories.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/repositories/UserRepositories.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nodemon.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/services/DatabaseReceiver.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/services/DatabaseReceiver.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/services/MQService.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/services/MQService.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/repositories/UserRepositories.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/repositories/UserRepositories.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/user/UserController.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/user/UserController.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/user/UserModel.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/user/UserModel.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/user/UserSchema.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/user/UserSchema.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/util/Util.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/util/Util.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -44,6 +42,8 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="javascript.nodejs.core.library.configured.version" value="14.8.0" />
+    <property name="javascript.nodejs.core.library.typings.version" value="14.14.14" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="web-ide.project.structure" />
@@ -81,7 +81,8 @@
       <workItem from="1608040766544" duration="4873000" />
       <workItem from="1608299387194" duration="10803000" />
       <workItem from="1608325604357" duration="5519000" />
-      <workItem from="1608357522057" duration="30458000" />
+      <workItem from="1608357522057" duration="30552000" />
+      <workItem from="1608425115283" duration="21412000" />
     </task>
     <servers />
   </component>
