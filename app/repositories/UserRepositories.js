@@ -40,9 +40,12 @@ module.exports = {
             })
     },
 
-    registerUser: async (username, cb) => {
+    registerUser: async (body, cb) => {
         const user = new userModel({
-            username: username
+            username: body.username,
+            auth:{
+                pin:util.encrPass(body.pin)
+            },
         })
         try {
             const savedUser = await user.save()
@@ -56,6 +59,7 @@ module.exports = {
             cb("0")
         }
     },
+
     createPin: async (data, cb) => {
         await userModel.findOneAndUpdate({username: data.username},
             {auth: {pin: util.encrPass(data.pin)}},
@@ -65,14 +69,46 @@ module.exports = {
                 cb("1")
             })
     },
+    checkEmailKTPExist:async (email,no_ktp, cb)=>{
+        await userModel.findOne({$or:[{'personal.email': email},{'personal.no_ktp': no_ktp}]}, null,
+        // await userModel.findOne({'personal.email': email}, null,
+            null, async (err, doc) => {
+                if (err) {
+                    cb("0")
+                    console.log("Isi Error Check Email & No KTP: ", err)
+                }
+                if (doc == null) {
+                    cb("1")
+                } else {
+                    cb("2")
+                }
+            })
+    },
+    // checkNoKTP:async (no_ktp, cb)=>{
+    //     await userModel.findOne({'personal.no_ktp': no_ktp}, null,
+    //         null, async (err, doc) => {
+    //             if (err) {
+    //                 cb("0")
+    //                 console.log("Isi Error Check NoKTP: ", err)
+    //             }
+    //             if (doc == null) {
+    //                 cb("1")
+    //             } else {
+    //                 cb("2")
+    //             }
+    //         })
+    // },
     addPersonalData: async (data, username, cb) => {
         await userModel.findOneAndUpdate({username: username},
             {
-                $set:{'regis_data_status.personal':"Y"},
+                // $set:{'regis_data_status.personal':"Y"},
+                $set:{'regis_data_status.personal':"Y",
+                    'application_status':"IN_PROGGRESS"},
                 personal: {
                     no_ktp: data.no_ktp,
                     email: data.email,
                     education: data.education,
+                    marital: data.marital,
                     address: data.address,
                     province: data.province,
                     city: data.city,

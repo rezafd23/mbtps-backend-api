@@ -32,26 +32,35 @@ module.exports = {
                     cb("0")
                     console.log("Otp Service Error: ", err)
                 }
-                console.log("isiDoc: ",doc.valid_until)
+                console.log("isiDoc: ", doc.valid_until)
                 if (doc == null) {
                     cb("0")
                 } else {
-                    if (Date.now()<doc.valid_until&&parseInt(doc.otp_try)<3){
-                        if (doc.otp===data.otp){
-                            cb("1")
+                    if (Date.now() < doc.valid_until && parseInt(doc.otp_try) < 3 && doc.verification_status=="N") {
+                        if (doc.otp === data.otp) {
+
+                            otpModel.findOneAndUpdate({_id: data.otpId},
+                                {verification_status: "Y"}, {upsert: true},
+                                (err) => {
+                                    if (err) {
+                                        cb("0")
+                                    } else {
+                                        cb("1")
+                                    }
+                                })
                             console.log("otp Success")
                         } else {
                             otpModel.findOneAndUpdate({_id: data.otpId},
-                                {otp_try:parseInt(doc.otp_try)+1},{upsert:true},
-                                (err,doc)=>{
-                                if (err) cb("0")
+                                {otp_try: parseInt(doc.otp_try) + 1}, {upsert: true},
+                                (err, doc) => {
+                                    if (err) cb("0")
                                     cb("0")
                                 })
                             console.log("otp Failed ADD")
                         }
                     } else {
-                        console.log("otp Expired",Date.now())
-                        console.log("otp Expired2",doc.otp_try)
+                        console.log("otp Expired", Date.now())
+                        console.log("otp Expired2", doc.otp_try)
                         cb("2")
                     }
 

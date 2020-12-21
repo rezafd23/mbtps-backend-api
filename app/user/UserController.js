@@ -22,30 +22,84 @@ const diskStorage = multer.diskStorage({
 router.post('/createPin', (req, res) => {
     const {error} = userSchema.createPin(req.body)
     if (error) {
-        return res.status(400)
+        return res.status(200)
             .send({
                 response: '400',
                 status: 'Error',
                 payload: 'Invalid Data Input! Please Check your Data.'
             })
     }
-    userRepo.createPin(req.body, (response) => {
-        console.log("isiResponse: ", response)
-        if (response === "0") {
-            return res.status(400)
+
+    userRepo.checkPhoneNumber(req.body.username, (resp) => {
+        if (resp==="0"){
+            return res.status(200)
                 .send({
                     response: '400',
                     status: 'Error',
-                    payload: 'Internal Server Error'
+                    payload: 'Please Check Phone Number'
+                })
+        }
+        else if (resp==="2"){
+            return res.status(200)
+                .send({
+                    response: '400',
+                    status: 'Error',
+                    payload: 'Phone Number Already Registered!'
+                })
+        }
+        userRepo.registerUser(req.body, (response) => {
+            if (response === "0") {
+                return res.status(200)
+                    .send({
+                        response: '400',
+                        status: 'Error',
+                        payload: 'Registration Failed'
+                    })
+            }
+            return res.status(200)
+                .send({
+                    response: '200',
+                    status: 'Success',
+                    payload: 'Registration Succes'
+                })
+        })
+    })
+
+
+    userRepo.registerUser(req.body, (response) => {
+        if (response === "0") {
+            return res.status(200)
+                .send({
+                    response: '400',
+                    status: 'Error',
+                    payload: 'Registration Failed'
                 })
         }
         return res.status(200)
             .send({
                 response: '200',
                 status: 'Success',
-                payload: 'Success Create PIN'
+                payload: 'Registration Succes'
             })
     })
+
+    // userRepo.createPin(req.body, (response) => {
+    //     console.log("isiResponse: ", response)
+    //     if (response === "0") {
+    //         return res.status(400)
+    //             .send({
+    //                 response: '400',
+    //                 status: 'Error',
+    //                 payload: 'Internal Server Error'
+    //             })
+    //     }
+    //     return res.status(200)
+    //         .send({
+    //             response: '200',
+    //             status: 'Success',
+    //             payload: 'Success Create PIN'
+    //         })
+    // })
 
 
 })
@@ -55,29 +109,48 @@ router.post('/addPersonalData', (req, res) => {
         const {error} = userSchema.addPersonalData(req.body)
         if (error) {
             console.log("Error Validate: ", error)
-            return res.status(400)
+            return res.status(200)
                 .send({
                     response: '400',
                     status: 'Error',
                     payload: 'Invalid Data Input! Please Check your Data.'
                 })
         }
-        userRepo.addPersonalData(req.body, tokenData.username, (response) => {
-            if (response === "0") {
-                return res.status(400)
+        userRepo.checkEmailKTPExist(req.body.email,req.body.no_ktp,(resp)=>{
+            if(resp==="0"){
+                return res.status(200)
                     .send({
                         response: '400',
                         status: 'Error',
-                        payload: 'Invalid Add Personal Data'
+                        payload: 'Error Checking Data! Please Check your Data.'
+                    })
+            } else if (resp==="2"){
+                return res.status(200)
+                    .send({
+                        response: '400',
+                        status: 'Error',
+                        payload: 'Your Email and KTP Number Exist!'
                     })
             }
-            res.status(200)
-                .send({
-                    response: '200',
-                    status: 'Success',
-                    payload: 'Success Add Personal Data'
-                })
+            userRepo.addPersonalData(req.body, tokenData.username, (response) => {
+                if (response === "0") {
+                    return res.status(200)
+                        .send({
+                            response: '400',
+                            status: 'Error',
+                            payload: 'Invalid Add Personal Data'
+                        })
+                }
+                res.status(200)
+                    .send({
+                        response: '200',
+                        status: 'Success',
+                        payload: 'Success Add Personal Data'
+                    })
+            })
+
         })
+
 
 
     })
@@ -88,7 +161,7 @@ router.post('/addRelativeData', (req, res) => {
         const {error} = userSchema.addRelevanData(req.body)
         if (error) {
             console.log("Error Validate: ", error)
-            return res.status(400)
+            return res.status(200)
                 .send({
                     response: '400',
                     status: 'Error',
@@ -97,7 +170,7 @@ router.post('/addRelativeData', (req, res) => {
         }
         userRepo.addRelativeData(req.body, tokenData.username, (response) => {
             if (response === "0") {
-                return res.status(400)
+                return res.status(200)
                     .send({
                         response: '400',
                         status: 'Error',
@@ -119,7 +192,7 @@ router.post('/addWorkData', (req, res) => {
         const {error} = userSchema.addWorkData(req.body)
         if (error) {
             console.log("Error Validate: ", error)
-            return res.status(400)
+            return res.status(200)
                 .send({
                     response: '400',
                     status: 'Error',
@@ -128,7 +201,7 @@ router.post('/addWorkData', (req, res) => {
         }
         userRepo.addWorkData(req.body, tokenData.username, (response) => {
             if (response === "0") {
-                return res.status(400)
+                return res.status(200)
                     .send({
                         response: '400',
                         status: 'Error',
@@ -157,7 +230,7 @@ router.post("/uploadEktp", multer({ storage: diskStorage,fileFilter: (req, file,
             const file = req.file.path;
 
             if (!file) {
-                res.status(400).send({
+                res.status(200).send({
                     response: '400',
                     status: 'Error',
                     payload: 'Failed Upload EKTP'
@@ -165,7 +238,7 @@ router.post("/uploadEktp", multer({ storage: diskStorage,fileFilter: (req, file,
             } else {
                 userRepo.addEktp(file,tokenData.username,(response)=>{
                     if (response==="0"){
-                        res.status(400)
+                        res.status(200)
                             .send({
                                 response: '400',
                                 status: 'Error',
@@ -200,7 +273,7 @@ router.post("/uploadFace", multer({ storage: diskStorage,fileFilter: (req, file,
             const file = req.file.path;
 
             if (!file) {
-                res.status(400).send({
+                res.status(200).send({
                     response: '400',
                     status: 'Error',
                     payload: 'Failed Upload Face Image'
@@ -209,7 +282,7 @@ router.post("/uploadFace", multer({ storage: diskStorage,fileFilter: (req, file,
             else {
                 userRepo.addEktp(file,tokenData.username,(response)=>{
                     if (response==="0"){
-                        res.status(400)
+                        res.status(200)
                             .send({
                                 response: '400',
                                 status: 'Error',
@@ -265,7 +338,7 @@ router.get('/getUser', async (req, res) => {
         await userRepo.getUser(response.username, (data) => {
             console.log("isiResponse: ", data)
             if (data === 0) {
-                res.status(400)
+                res.status(200)
                     .send({
                         response: '400',
                         status: 'Error',
@@ -287,7 +360,7 @@ router.post('/loginPin', (req, res) => {
     const {error} = userSchema.createPin(req.body)
     if (error) {
         console.log("Error Validate: ", error)
-        return res.status(400)
+        return res.status(200)
             .send({
                 response: '400',
                 status: 'Error',
@@ -296,7 +369,7 @@ router.post('/loginPin', (req, res) => {
     }
     userRepo.loginUser(req.body, (response) => {
         if (response == "0") {
-            return res.status(400)
+            return res.status(200)
                 .send({
                     response: '400',
                     status: 'Error',
@@ -319,7 +392,7 @@ router.post('/submitOtpRegister', (req, res) => {
     const {error} = otpSchema.submitOtpSchema(req.body)
     if (error) {
         console.log("Error Validate: ", error)
-        return res.status(400)
+        return res.status(200)
             .send({
                 response: '400',
                 status: 'Error',
@@ -329,36 +402,43 @@ router.post('/submitOtpRegister', (req, res) => {
     otpRepo.submitOtp(req.body, (resp) => {
         console.log("isiOTP: ", resp)
         if (resp === "0") {
-            return res.status(400)
+            return res.status(200)
                 .send({
                     response: '400',
                     status: 'Error',
                     payload: 'Please Check your OTP'
                 })
         } else if (resp === "2") {
-            return res.status(400)
+            return res.status(200)
                 .send({
                     response: '400',
                     status: 'Error',
                     payload: 'OTP Expired, Please Try to Register again!'
                 })
         }
-        userRepo.registerUser(req.body.phone_number, (response) => {
-            if (response === "0") {
-                return res.status(400)
-                    .send({
-                        response: '400',
-                        status: 'Error',
-                        payload: 'Registration Failed'
-                    })
-            }
-            return res.status(200)
-                .send({
-                    response: '200',
-                    status: 'Success',
-                    payload: 'Registration Succes'
-                })
-        })
+        return res.status(200)
+            .send({
+                response: '200',
+                status: 'Success',
+                payload: 'OTP Valid'
+            })
+
+        // userRepo.registerUser(req.body.phone_number, (response) => {
+        //     if (response === "0") {
+        //         return res.status(200)
+        //             .send({
+        //                 response: '400',
+        //                 status: 'Error',
+        //                 payload: 'Registration Failed'
+        //             })
+        //     }
+        //     return res.status(200)
+        //         .send({
+        //             response: '200',
+        //             status: 'Success',
+        //             payload: 'Registration Succes'
+        //         })
+        // })
     })
 
 })
@@ -368,7 +448,7 @@ router.post('/register', (req, res) => {
     const {error} = userSchema.registPhoneNumberSchema(req.body)
     if (error) {
         console.log("Error Validate: ", error)
-        return res.status(400)
+        return res.status(200)
             .send({
                 response: '400',
                 status: 'Error',
@@ -384,7 +464,7 @@ router.post('/register', (req, res) => {
                         status: 'Error',
                         payload: "Error Service OTP!"
                     }
-                    return res.status(400).send(responseOTP)
+                    return res.status(200).send(responseOTP)
                 } else {
                     let responseOTP = {
                         response: '200',
@@ -405,14 +485,14 @@ router.post('/register', (req, res) => {
                 status: 'Error',
                 payload: "Internal Server Error!"
             }
-            return res.status(400).send(responseOTP)
+            return res.status(200).send(responseOTP)
         } else {
             let responseOTP = {
                 response: '400',
                 status: 'Error',
                 payload: "Phone Number is Registered!"
             }
-            return res.status(400).send(responseOTP)
+            return res.status(200).send(responseOTP)
         }
     })
 })

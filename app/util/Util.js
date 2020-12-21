@@ -18,7 +18,7 @@ module.exports = {
                     const statusToken = jwt.verify(token, key)
                     return next(statusToken)
                 } catch (err) {
-                    return res.status(401).send({
+                    return res.status(200).send({
                         response: "401",
                         status: "Error",
                         payload: "Invalid token!!"
@@ -26,7 +26,7 @@ module.exports = {
                 }
             }
         }
-        return res.status(401).send({
+        return res.status(200).send({
             response: "401",
             status: "Error",
             payload: "Invalid authentication!!"

@@ -12,6 +12,7 @@ module.exports = {
             no_ktp: joi.string().pattern(/^[0-9]+$/).min(12).max(16).required(),
             email:joi.string().email({minDomainSegments:2}).required(),
             education:joi.string().required(),
+            marital:joi.string().required(),
             address:joi.string().required(),
             province:joi.string().required(),
             city:joi.string().required(),
