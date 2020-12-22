@@ -53,7 +53,7 @@ module.exports = {
         const schema = joi.object({
             npwp:joi.string().pattern(/^[0-9]+$/).min(13).max(15).required(),
             income_src:joi.string().required(),
-            income:joi.string().pattern(/^[0-9]+$/).required(),
+            income:joi.number().required(),
             work_type:joi.string().required(),
             work_office:joi.string(),
             work_status:joi.string()

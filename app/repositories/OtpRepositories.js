@@ -32,7 +32,8 @@ module.exports = {
                     cb("0")
                     console.log("Otp Service Error: ", err)
                 }
-                console.log("isiDoc: ", doc.valid_until)
+                console.log("isiDocOTP: ", data.phone_number)
+                console.log("isiDocOTP2: ", data.otpId)
                 if (doc == null) {
                     cb("0")
                 } else {
@@ -51,7 +52,8 @@ module.exports = {
                             console.log("otp Success")
                         } else {
                             otpModel.findOneAndUpdate({_id: data.otpId},
-                                {otp_try: parseInt(doc.otp_try) + 1}, {upsert: true},
+                                // {otp_try: parseInt(doc.otp_try) + 1}, {upsert: true},
+                                {otp_try: doc.otp_try + 1}, {upsert: true},
                                 (err, doc) => {
                                     if (err) cb("0")
                                     cb("0")

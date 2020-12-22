@@ -19,6 +19,7 @@ const userSchema = new schema({
     work:{type:Object},
     ektp_file:{type:Object},
     ekyc:{type:Object},
+    status_history:[],
     created_at:{type:Date,default:Date.now},
     updated_at:{type:Date,default:Date.now}
 })

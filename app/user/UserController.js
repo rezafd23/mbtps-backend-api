@@ -116,7 +116,7 @@ router.post('/addPersonalData', (req, res) => {
                     payload: 'Invalid Data Input! Please Check your Data.'
                 })
         }
-        userRepo.checkEmailKTPExist(req.body.email,req.body.no_ktp,(resp)=>{
+        userRepo.checkEmailKTPExist(tokenData.username,req.body.email,req.body.no_ktp,(resp)=>{
             if(resp==="0"){
                 return res.status(200)
                     .send({
@@ -199,24 +199,66 @@ router.post('/addWorkData', (req, res) => {
                     payload: 'Invalid Data Input! Please Check your Data.'
                 })
         }
-        userRepo.addWorkData(req.body, tokenData.username, (response) => {
-            if (response === "0") {
+        userRepo.checkNpwp(req.body.npwp,tokenData.username,(resp)=>{
+            if (resp==="0"){
                 return res.status(200)
                     .send({
                         response: '400',
                         status: 'Error',
-                        payload: 'Invalid Add Work Data'
+                        payload: 'Error Checking Data! Please Check your Data.'
+                    })
+            } else if (resp==="2"){
+                return res.status(200)
+                    .send({
+                        response: '400',
+                        status: 'Error',
+                        payload: 'Your NPWP Exist! Please try another number.'
+                    })
+            }
+            userRepo.addWorkData(req.body, tokenData.username, (response) => {
+                if (response === "0") {
+                    return res.status(200)
+                        .send({
+                            response: '400',
+                            status: 'Error',
+                            payload: 'Invalid Add Work Data'
+                        })
+                }
+                res.status(200)
+                    .send({
+                        response: '200',
+                        status: 'Success',
+                        payload: 'Success Add Work Data'
+                    })
+            })
+        })
+
+    })
+})
+
+router.put('/finishRegis', (req, res) => {
+    util.tokenValidation(req, res, async (tokenData) => {
+        userRepo.finishRegister(tokenData.username,(resp)=>{
+            if (resp==="0"){
+                return res.status(200)
+                    .send({
+                        response: '400',
+                        status: 'Error',
+                        payload: 'Error Checking Data! Please Check your Data.'
                     })
             }
             res.status(200)
                 .send({
                     response: '200',
                     status: 'Success',
-                    payload: 'Success Add Work Data'
+                    payload: 'Success Registration'
                 })
         })
+
     })
 })
+
+
 router.post("/uploadEktp", multer({ storage: diskStorage,fileFilter: (req, file, cb) => {
             if (file.mimetype == "image/png" || file.mimetype == "image/jpg" || file.mimetype == "image/jpeg") {
                 cb(null, true);

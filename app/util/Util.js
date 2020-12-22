@@ -16,6 +16,7 @@ module.exports = {
 
                 try {
                     const statusToken = jwt.verify(token, key)
+                    console.log("isi status Token: ",statusToken)
                     return next(statusToken)
                 } catch (err) {
                     return res.status(200).send({
