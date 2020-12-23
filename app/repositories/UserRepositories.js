@@ -143,6 +143,7 @@ module.exports = {
                 },
                 personal: {
                     no_ktp: data.no_ktp,
+                    nama: data.nama,
                     email: data.email,
                     education: data.education,
                     marital: data.marital,

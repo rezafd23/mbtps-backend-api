@@ -2,15 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ebebed30-d776-49f4-9289-4642e66fd469" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/68512ece-bd80-4341-ae46-aba5e3297e4a.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/68512ece-bd80-4341-ae46-aba5e3297e4a.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/otp/OtpModel.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/otp/OtpModel.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/repositories/OtpRepositories.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/repositories/OtpRepositories.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/repositories/UserRepositories.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/repositories/UserRepositories.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/user/UserController.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/user/UserController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/user/UserModel.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/user/UserModel.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/user/UserSchema.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/user/UserSchema.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/util/Util.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/util/Util.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,13 +35,16 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="javascript.nodejs.core.library.configured.version" value="14.8.0" />
     <property name="javascript.nodejs.core.library.typings.version" value="14.14.14" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/db" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="web-ide.project.structure" />
     <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/db" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/app/services" />
       <recent name="$PROJECT_DIR$" />
@@ -85,7 +80,8 @@
       <workItem from="1608583868448" duration="1190000" />
       <workItem from="1608616540873" duration="7601000" />
       <workItem from="1608651466385" duration="725000" />
-      <workItem from="1608653760483" duration="2982000" />
+      <workItem from="1608653760483" duration="3018000" />
+      <workItem from="1608709156438" duration="1416000" />
     </task>
     <servers />
   </component>

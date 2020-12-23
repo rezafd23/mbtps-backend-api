@@ -10,6 +10,7 @@ module.exports = {
     addPersonalData:(data)=>{
         const schema = joi.object({
             no_ktp: joi.string().pattern(/^[0-9]+$/).min(12).max(16).required(),
+            nama: joi.string().required(),
             email:joi.string().email({minDomainSegments:2}).required(),
             education:joi.string().required(),
             marital:joi.string().required(),
