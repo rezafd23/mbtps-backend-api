@@ -465,22 +465,6 @@ router.post('/submitOtpRegister', (req, res) => {
                 payload: 'OTP Valid'
             })
 
-        // userRepo.registerUser(req.body.phone_number, (response) => {
-        //     if (response === "0") {
-        //         return res.status(200)
-        //             .send({
-        //                 response: '400',
-        //                 status: 'Error',
-        //                 payload: 'Registration Failed'
-        //             })
-        //     }
-        //     return res.status(200)
-        //         .send({
-        //             response: '200',
-        //             status: 'Success',
-        //             payload: 'Registration Succes'
-        //         })
-        // })
     })
 
 })
@@ -533,6 +517,61 @@ router.post('/register', (req, res) => {
                 response: '400',
                 status: 'Error',
                 payload: "Phone Number is Registered!"
+            }
+            return res.status(200).send(responseOTP)
+        }
+    })
+})
+
+
+router.post('/loginPhone', (req, res) => {
+
+    const {error} = userSchema.registPhoneNumberSchema(req.body)
+    if (error) {
+        console.log("Error Validate: ", error)
+        return res.status(200)
+            .send({
+                response: '400',
+                status: 'Error',
+                message: 'Invalid Phone Number!'
+            })
+    }
+    userRepo.checkPhoneNumber(req.body.username, (resp) => {
+        if (resp === "2") {
+            otpRepo.sendOtp(req.body.username, (respId) => {
+                if (respId === "0") {
+                    let responseOTP = {
+                        response: '400',
+                        status: 'Error',
+                        payload: "Error Service OTP!"
+                    }
+                    return res.status(200).send(responseOTP)
+                } else {
+                    let responseOTP = {
+                        response: '200',
+                        status: 'Success',
+                        payload: {
+                            otp: respId.otp,
+                            id: respId._id
+                        }
+                    }
+                    console.log("isiRespId: ", responseOTP)
+                    return res.status(200).send(responseOTP)
+
+                }
+            })
+        } else if (resp === "0") {
+            let responseOTP = {
+                response: '400',
+                status: 'Error',
+                payload: "Internal Server Error!"
+            }
+            return res.status(200).send(responseOTP)
+        } else {
+            let responseOTP = {
+                response: '400',
+                status: 'Error',
+                payload: "Phone Number is not Registered!"
             }
             return res.status(200).send(responseOTP)
         }

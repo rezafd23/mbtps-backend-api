@@ -47,8 +47,10 @@ util.connectMongo()
 // });
 
 const userController = require('./app/user/UserController')
+const otpController = require('./app/otp/OtpController')
 
 app.use(process.env.base_url+"user",userController)
+app.use(process.env.base_url+"otp",otpController)
 
 
 

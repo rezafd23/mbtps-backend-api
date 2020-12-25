@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ebebed30-d776-49f4-9289-4642e66fd469" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/otp/OtpController.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/user/UserController.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/user/UserController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,7 +84,8 @@
       <workItem from="1608616540873" duration="7601000" />
       <workItem from="1608651466385" duration="725000" />
       <workItem from="1608653760483" duration="3018000" />
-      <workItem from="1608709156438" duration="1416000" />
+      <workItem from="1608709156438" duration="1805000" />
+      <workItem from="1608763130743" duration="7042000" />
     </task>
     <servers />
   </component>
